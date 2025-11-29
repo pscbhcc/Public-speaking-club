@@ -71,14 +71,15 @@ public-speaking-club/
 
  ## 🧑‍💻 Built By
 
-Ronewa Masindi with the help of Nhan Lien, Julie Dorchhuon, and Arturo Li.  
-— Public Speaking Club Website Committee, BHCC Fall 2025
+Ronewa Masindi with the help of Nhan Lien, Julie Dorchhuon, and Arturo Li. 
+Public Speaking Club Website Committee, BHCC Fall 2025
 
 Special thanks to the club leadership and members for their support!
 
 ## 📄 License
 
 &copy; 2025 Public Speaking Club, BHCC. All rights reserved.
+
 
 
 

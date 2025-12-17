@@ -223,7 +223,7 @@
     }
 
     /* ========================================
-       HERO SECTION
+       HERO SECTION - FIXED
     ======================================== */
     .hero {
       background-color: var(--primary);
@@ -232,23 +232,28 @@
       align-items: center;
       gap: 2rem;
       flex-wrap: wrap;
+      min-height: auto;
     }
 
     .hero-content {
       flex: 1;
       min-width: 300px;
       color: var(--light);
+      word-wrap: break-word;
+      overflow-wrap: break-word;
     }
 
     .hero-content h1 {
       font-size: 2.5rem;
       margin-bottom: 1rem;
+      line-height: 1.2;
     }
 
     .hero-content p {
       color: rgba(255, 255, 255, 0.9);
       margin-bottom: 1.5rem;
       font-size: 1.1rem;
+      line-height: 1.5;
     }
 
     .hero-image {
@@ -257,12 +262,15 @@
       border-radius: var(--radius);
       overflow: hidden;
       box-shadow: var(--shadow);
+      max-width: 100%;
     }
 
     .hero-image img {
       width: 100%;
       height: auto;
       display: block;
+      max-height: 400px;
+      object-fit: cover;
     }
 
     /* ========================================
@@ -862,14 +870,36 @@
       /* Hero adjustments */
       .hero {
         flex-direction: column;
-        text-align: center;
+        text-align: left;
         padding: 2rem 1rem;
-        margin-top: 0;
+        gap: 1.5rem;
+      }
+
+      .hero-content {
+        min-width: 100%;
+        padding: 0;
       }
 
       .hero-content h1 {
         font-size: 2rem;
-        margin-top: 0.5rem;
+        line-height: 1.3;
+        margin-bottom: 1rem;
+        word-break: normal;
+      }
+
+      .hero-content p {
+        font-size: 1.05rem;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+
+      .hero-image {
+        min-width: 100%;
+        margin-top: 1rem;
+      }
+
+      .hero-image img {
+        max-height: 300px;
       }
 
       .mission,
@@ -910,18 +940,23 @@
       }
     }
 
-    /* Very small screens */
     @media (max-width: 480px) {
       header {
         min-height: 60px;
       }
       
       .hero-content h1 {
-        font-size: 1.6rem;
+        font-size: 1.75rem;
+        line-height: 1.3;
       }
 
       .hero-content p {
         font-size: 1rem;
+        line-height: 1.5;
+      }
+
+      .hero-image img {
+        max-height: 250px;
       }
 
       .btn {
@@ -948,6 +983,18 @@
       
       .nav-links {
         top: 60px;
+      }
+    }
+
+    /* Specific fix for very small screens */
+    @media (max-width: 400px) {
+      .hero-content h1 {
+        font-size: 1.6rem;
+        word-break: keep-all;
+      }
+      
+      .hero-content p {
+        font-size: 0.95rem;
       }
     }
 
@@ -1020,11 +1067,11 @@
         <h1>Need to boost confidence in Public Speaking? Join the club.</h1>
         <p>Sign up now and collaborate with fellow members in setting topics for discussions and practicing public speaking!</p>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLScfGhwjW3yAUeJDdaLtmmdjCLsxKKft6Y5uJco3DWzpdqu6zA/viewform?usp=sf_link" target="_blank" rel="noopener" aria-label="Join Public Speaking Club form"> 
-          <button class="btn btn-primary">Join</button>
+          <button class="btn btn-primary">Join Now</button>
         </a>
       </div>
       <div class="hero-image" aria-hidden="true">
-        <img src="./image/homepage.jpg" style="max-height: 400px; width: 600px;" alt="Public Speaking Event">
+        <img src="./image/homepage.jpg" alt="Public Speaking Event">
       </div>
     </section>
 
@@ -1442,7 +1489,10 @@
     const membershipForm = document.getElementById('membershipForm');
 
     if (joinBtn && joinFormModal) {
-      joinBtn.addEventListener('click', () => openModal(joinFormModal));
+      joinBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        openModal(joinFormModal);
+      });
     }
     if (cancelBtn && joinFormModal) {
       cancelBtn.addEventListener('click', () => closeModal(joinFormModal));
@@ -1626,5 +1676,4 @@
     });
   </script>
 </body>
-  </html>
-
+        </html>
